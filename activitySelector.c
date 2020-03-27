@@ -39,11 +39,17 @@ void main()
     int i = 0, j = 0;
     for (i = 0; i < n; i++)
     {
+        repeat:
         printf("Activity %d: \n", i + 1);
         printf("Enter Start Time: ");
         scanf("%d", &arr[i].start);
         printf("Enter Finish Time: ");
         scanf("%d", &arr[i].finish);
+        if(arr[i].start>arr[i].finish)
+        {
+            printf("\n\tFinish time has to be after start time!!");
+            goto repeat;
+        }
     }
     //Sort activities based on finish time
     activity temp;
